@@ -1,0 +1,57 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Solidity files
+*.sol linguist-language=Solidity
+*.sol linguist-detectable=true
+
+# JavaScript files
+*.js text
+*.js linguist-detectable=true
+
+# JSON files
+*.json text
+*.json linguist-detectable=true
+
+# Documentation
+*.md text
+*.txt text
+*.doc text
+*.pdf binary
+
+# Configs
+*.yml text
+*.yaml text
+*.config text
+*.js.map text
+
+# Graphics
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Force batch scripts to always use CRLF line endings
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force bash scripts to always use LF line endings
+*.sh text eol=lf
+
+# Archives
+*.7z binary
+*.gz binary
+*.tar binary
+*.tgz binary
+*.zip binary
+
+# Lock files
+package-lock.json text -diff
+yarn.lock text -diff
+
+# Hardhat specific
+artifacts/ linguist-generated=true
+cache/ linguist-generated=true
+coverage/ linguist-generated=true
+typechain/ linguist-generated=true
