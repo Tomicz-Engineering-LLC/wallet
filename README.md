@@ -1,0 +1,2 @@
+# wallet
+Decentralized wallet
