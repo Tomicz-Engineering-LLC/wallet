@@ -1,92 +1,97 @@
-# Decentralized Wallet Project
+# Ethereum Wallet Implementation
 
-A blockchain wallet implementation using Hardhat and Ethereum development environment.
+A simple decentralized Ethereum wallet implementation built with Hardhat and Solidity.
 
-## Description
-
-This project implements a decentralized wallet that allows users to:
+## Features
 
 - Create and manage Ethereum wallets
-- Handle cryptocurrency transactions
-- Interact with smart contracts
+- Send and receive ETH
+- Owner-restricted withdrawals
+- Event tracking for deposits and withdrawals
 
 ## Technologies Used
 
+- Solidity ^0.8.19
+- Hardhat
+- Ethers.js
 - Node.js
-- Hardhat - Ethereum development environment
-- Ethers.js - Ethereum wallet implementation
-- Solidity - Smart contract development
-
-## Prerequisites
-
-- Node.js (v16 or later)
-- npm (Node Package Manager)
-
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone [your-repo-url]
-cd wallet
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Run Hardhat local network:
-
-```bash
-npx hardhat node
-```
 
 ## Project Structure
 
 ```plaintext
 wallet/
-├── contracts/        # Smart contracts
-├── scripts/         # Deployment and task scripts
-├── test/           # Test files
-├── hardhat.config.js # Hardhat configuration
-└── README.md
+├── contracts/         # Smart contracts
+│   └── Wallet.sol     # Main wallet contract
+├── scripts/           # Deployment and utility scripts
+│   ├── deploy-wallet.js
+│   └── get-wallet-info.js
+├── test/              # Test files
+│   └── Wallet.test.js
+└── hardhat.config.js  # Hardhat configuration
 ```
 
-## Usage
+## Getting Started
 
-- Compile contracts:
+### Prerequisites
 
-```bash
-npx hardhat compile
-```
+- Node.js (v16+ recommended)
+- npm or yarn
 
-- Run tests:
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/yourusername/wallet.git
+   cd wallet
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+### Testing
+
+Run the tests to ensure everything is working correctly:
 
 ```bash
 npx hardhat test
 ```
 
-- Deploy contracts:
+### Deployment
+
+To deploy the wallet to the local Hardhat network:
 
 ```bash
-npx hardhat run scripts/deploy.js
+npx hardhat run scripts/deploy-wallet.js
 ```
 
-## Security
+To get information about the deployed wallet:
 
-⚠️ Important security notes:
+```bash
+npx hardhat run scripts/get-wallet-info.js
+```
 
-- Never share your private keys
-- Keep your mnemonic phrase secure
-- Use environment variables for sensitive data
-- Always audit code before deploying to mainnet
+## Contract Functions
 
-## Contributing
+- `withdraw(uint256 amount)`: Withdraw ETH from the wallet (owner only)
+- `getBalance()`: Check the wallet's balance
+- `getContractAddress()`: Get the wallet's address
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## Security Considerations
+
+- The wallet uses an `onlyOwner` modifier to restrict withdrawals
+- Never share your private keys or mnemonic phrases
+- Always audit contracts before deploying to mainnet
+- Consider gas costs when performing transactions
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Hardhat documentation
+- Ethereum community
+- Solidity documentation
